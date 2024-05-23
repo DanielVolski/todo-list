@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SignUpController extends Controller
@@ -15,6 +16,18 @@ class SignUpController extends Controller
             'password' => ['required']
         ]);
 
-        dd($validated);
+        // $user = new User();
+
+        // $user->name = $validated['name'];
+        // $user->email = $validated['email'];
+        // $user->cpf = $validated['cpf'];
+        // $user->birth_date = $validated['birthDate'];
+        // $user->password = $validated['password'];
+
+        // $user->save();
+
+        User::create($validated);
+
+        return redirect()->route('signin');
     }
 }
